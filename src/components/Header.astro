@@ -1,0 +1,41 @@
+---
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
+import { Mail, Github, Linkedin, Copy, MapPin } from "lucide-react";
+---
+
+<header class="flex items-center gap-4 mb-8">
+    <Avatar class="w-12 h-12">
+        <AvatarImage src="/" alt="Profile Picture" />
+        <AvatarFallback class="bg-purple-200 text-purple-900 font-bold text-lg">JS</AvatarFallback>
+    </Avatar>
+    
+    <div class="flex flex-col min-w-0">
+        <h1 class="text-xl font-semibold text-white">José Suarez Barreto</h1>
+        <p class="text-sm text-gray-400">Desarrollador FullStack</p>
+        <div class="flex items-center gap-1 text-xs text-gray-500 mt-0.5">
+            <MapPin className="w-3 h-3" />
+            <span>Madrid, España</span>
+        </div>
+    </div>
+    
+    <div class="flex items-center gap-2 ml-auto">
+        <a href="mailto:josysuarez2003@gmail.com" target="_blank">
+            <Button size="sm" class="gap-1.5 bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 text-xs">
+                <Mail className="w-3 h-3" />
+                josysuarez2003@gmail.com
+            </Button>
+        </a>
+        <a href="https://github.com/josesuarez03" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="sm" class="text-gray-400 hover:text-white p-1.5">
+                <Github className="w-4 h-4" />
+            </Button>
+        </a>
+        <a href="https://www.linkedin.com/in/josé-suárez-barreto" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="sm" class="text-gray-400 hover:text-white p-1.5">
+                <Linkedin className="w-4 h-4" />
+            </Button>
+        </a>
+    </div>
+</header>
