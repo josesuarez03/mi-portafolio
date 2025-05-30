@@ -2,58 +2,60 @@
 import { Badge } from "./ui/badge";
 
 interface Technology {
-    name: string;
-    color?: string;
+  name: string;
+  color?: string;
 }
 
 interface TechSectionProps {
-    title?: string;
-    technologies?: Technology[];
+  title?: string;
+  technologies?: Technology[];
 }
 
-const { title = "Tecnologías", technologies = [
+const {
+  title = "Tecnologías",
+  technologies = [
     // Frontend
     { name: "React", color: "bg-blue-600" },
     { name: "TypeScript", color: "bg-blue-700" },
     { name: "Next.js", color: "bg-blue-800" },
     { name: "Tailwind CSS", color: "bg-blue-500" },
-    
+
     // Backend
     { name: "Python", color: "bg-blue-600" },
     { name: "Django", color: "bg-blue-700" },
     { name: "Flask", color: "bg-blue-800" },
     { name: "Node.js", color: "bg-blue-500" },
     { name: "Express", color: "bg-blue-600" },
-    
+
     // Bases de Datos
     { name: "PostgreSQL", color: "bg-indigo-600" },
     { name: "MySQL", color: "bg-indigo-700" },
     { name: "MongoDB", color: "bg-indigo-800" },
     { name: "Redis", color: "bg-indigo-500" },
-    
+
     // DevOps & Cloud
     { name: "Docker", color: "bg-cyan-600" },
     { name: "AWS", color: "bg-cyan-700" },
     { name: "Terraform", color: "bg-cyan-800" },
     { name: "GitHub Actions", color: "bg-cyan-500" },
-    
+
     // Scripting & Tools
     { name: "Bash", color: "bg-slate-600" },
     { name: "Python Scripts", color: "bg-slate-700" },
     { name: "Makefile", color: "bg-slate-800" },
-    { name: "Git", color: "bg-slate-500" }
-] }: TechSectionProps = Astro.props;
-
+    { name: "Git", color: "bg-slate-500" },
+  ],
+}: TechSectionProps = Astro.props;
 ---
 
 <section class="mb-12">
   <h2 class="text-xl font-semibold text-white mb-6">{title}</h2>
-  
+
   <div class="flex flex-wrap gap-3">
     {technologies.map((tech) => (
-      <Badge 
-        variant="secondary" 
-        class={`${tech.color || 'bg-blue-600'} text-white hover:opacity-80 transition-opacity px-3 py-1`}
+      <Badge
+        variant="secondary"
+        className={`${tech.color || "bg-blue-600"} text-white hover:opacity-80 transition-opacity px-3 py-1 rounded-md`}
       >
         {tech.name}
       </Badge>

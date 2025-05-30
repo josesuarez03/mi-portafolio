@@ -37,7 +37,7 @@ const {
   
   <div class="space-y-6">
     {experiences.map((exp) => (
-      <div class="flex gap-4" key={exp.id}>
+      <div class="flex gap-4">
         <!-- Icono -->
         <div class="flex-shrink-0 w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-xl border border-blue-600/30">
           {exp.icon || "📋"}
@@ -50,7 +50,7 @@ const {
               <h3 class="text-lg font-semibold text-white">{exp.title}</h3>
               <p class="text-gray-300">{exp.subtitle}</p>
             </div>
-            <Badge variant="outline" class="border-blue-600 text-blue-400 bg-blue-600/10 mt-2 lg:mt-0 w-fit">
+            <Badge variant="outline" className="border-blue-600 text-blue-400 bg-blue-600/10 mt-2 lg:mt-0 w-fit">
               {exp.period}
             </Badge>
           </div>
@@ -64,7 +64,7 @@ const {
                 <Badge
                   key={tech}
                   variant="secondary"
-                  class="text-xs px-2 py-1 bg-blue-600/20 text-blue-300 border border-blue-600/30"
+                  className="text-xs px-2 py-1 bg-blue-600/20 text-blue-300 border border-blue-600/30"
                 >
                   {tech}
                 </Badge>
