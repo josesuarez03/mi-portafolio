@@ -1,11 +1,38 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ExperienceSection from '../components/ExperiencieSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import TechSection from '../components/TechSection.astro';
+import AnimatedSection from '../components/AnimatedSection';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="José Suarez Barreto - Desarrollador Full Stack">
+  <main class="container mx-auto px-4 py-8 max-w-6xl">
+    <!-- Header con información personal -->
+    <AnimatedSection delay={0} client:load>
+      <Header />
+    </AnimatedSection>
+    
+    <!-- Sección Sobre mí -->
+    <AnimatedSection delay={0.1} client:load>
+      <AboutSection />
+    </AnimatedSection>
+    
+    <!-- Sección de Experiencia -->
+    <AnimatedSection delay={0.2} client:load>
+      <ExperienceSection />
+    </AnimatedSection>
+    
+    <!-- Sección de Tecnologías -->
+    <AnimatedSection delay={0.3} client:load>
+      <TechSection />
+    </AnimatedSection>
+    
+    <!-- Sección de Proyectos -->
+    <AnimatedSection delay={0.4} client:load>
+      <ProjectsSection />
+    </AnimatedSection>
+  </main>
 </Layout>
