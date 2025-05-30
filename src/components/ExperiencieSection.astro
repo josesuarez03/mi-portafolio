@@ -1,0 +1,78 @@
+---
+import { Badge } from '@/components/ui/badge';
+
+interface Experience {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  period: string;
+  icon?: string;
+  technologies?: string[];
+}
+
+interface Props {
+  title?: string;
+  experiences?: Experience[];
+}
+
+const { 
+  title = "Experiencia",
+  experiences = [
+    {
+      id: "1",
+      title: "Becario en Monitorización y Automatización",
+      subtitle: "Empresa de Telecomunicaciones",
+      description: "Apoyo en tareas de observabilidad del sistema, creación de scripts en Python y Bash para automatizar flujos de trabajo y mejora de la infraestructura bajo entornos Linux. Colaboración con equipos de DevOps para mantener la disponibilidad de servicios críticos.",
+      period: "2024 - Presente",
+      icon: "🛠️",
+      technologies: ["Python", "Bash", "Linux", "Elasticsearch", "Grafana", "Prometheus", "Kibana"]
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="mb-12">
+  <h2 class="text-xl font-semibold text-white mb-6">{title}</h2>
+  
+  <div class="space-y-6">
+    {experiences.map((exp) => (
+      <div class="flex gap-4" key={exp.id}>
+        <!-- Icono -->
+        <div class="flex-shrink-0 w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-xl border border-blue-600/30">
+          {exp.icon || "📋"}
+        </div>
+        
+        <!-- Contenido -->
+        <div class="flex-1">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-2">
+            <div>
+              <h3 class="text-lg font-semibold text-white">{exp.title}</h3>
+              <p class="text-gray-300">{exp.subtitle}</p>
+            </div>
+            <Badge variant="outline" class="border-blue-600 text-blue-400 bg-blue-600/10 mt-2 lg:mt-0 w-fit">
+              {exp.period}
+            </Badge>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            {exp.description}
+          </p>
+
+          {exp.technologies && (
+            <div class="flex flex-wrap gap-2 mt-3">
+              {exp.technologies.map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  class="text-xs px-2 py-1 bg-blue-600/20 text-blue-300 border border-blue-600/30"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
