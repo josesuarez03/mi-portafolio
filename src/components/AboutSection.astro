@@ -1,14 +1,15 @@
 ---
+// src/components/AboutSection.astro
+import { about } from "@/data/portafolio";
+
 interface Props {
   title?: string;
   description?: string;
 }
 
 const {
-  title = "Sobre mí",
-  description = `Ingeniero Informático con experiencia full stack, especializado en DevOps, automatización e infraestructura. Mi enfoque se centra en optimizar procesos, automatizar flujos de trabajo y diseñar soluciones escalables tanto en frontend como backend.
-Trabajo con tecnologías de contenedorización como Docker y plataformas cloud, principalmente AWS, para garantizar deployments robustos y arquitecturas ágiles. Mi experiencia abarca el desarrollo completo de aplicaciones, desde la interfaz de usuario hasta la infraestructura de servidor.
-Mi compromiso con el aprendizaje continuo me permite mantenerme actualizado en un ecosistema tecnológico en constante evolución, aplicando las mejores prácticas en desarrollo full stack e infraestructura moderna.`
+  title = about.title,
+  description = about.description
 } = Astro.props;
 ---
 

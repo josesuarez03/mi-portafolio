@@ -1,8 +1,10 @@
 ---
+// src/components/ProjectsSection.astro
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
+import { projects } from '@/data/portafolio';
 
 interface Project {
   id: string;
@@ -20,60 +22,17 @@ interface Props {
   projects?: Project[];
 }
 
-const { title = "Proyectos", projects = [
-    {
-        id: "1",
-        title: "Portfolio Personal",
-        subtitle: "Sitio web personal",
-        description: "Un portafolio para mostrar mis proyectos y habilidades.",
-        technologies: ["Astro", "Tailwind CSS", "TypeScript", "Shadcn UI", "Vercel"],
-        image: "",
-        githubUrl: "",
-    },
-    {
-        id: "2",
-        title: "Gestor de Tareas",
-        subtitle: "Aplicación web de productividad",
-        description: "Una aplicación para gestionar tareas y proyectos. Se alojó en AWS utilizando ECS y Fargate.",
-        technologies: ["React", "Flask", "MariaDB", "Docker", "Nginx", "GitHub Actions", "Terraform", "AWS", "ECS"],
-        image: "",
-        githubUrl: "https://github.com/josesuarez03/proyecto-final-automatizacion"
-    },
-    {
-        id: "3",
-        title: "Dedicatoria",
-        subtitle: "Página web de dedicatorias para San Valentín",
-        description: "Una página web para enviar dedicatorias personalizadas en San Valentín.",
-        technologies: ["React", "Vite", "Tailwind", "Framer Motion", "P5.js", "Vercel"],
-        image: "",
-        githubUrl: "https://github.com/josesuarez03/corazon-react"
-    },
-    {
-        "id": "4",
-        "title": "Salud y Bienestar",
-        "subtitle": "E-commerce para supermercado",
-        "description": "Aplicación colaborativa para realizar un E-commerce ficticio para un supermercado. Aunque fue un trabajo en equipo, lideré varias fases del proyecto como el backend y frontend, incluyendo la implementación de la arquitectura de microservicios y la integración de herramientas de monitoreo y logging.",
-        "technologies": ["Python", "Flask", "HTML", "CSS", "Docker", "MariaDB", "Grafana", "Prometheus", "ELK Stack", "AWS", "EC2"],
-        "image": "", 
-        "githubUrl": "https://github.com/HectorCRZBQ/salud_y_bienestar"
-    },
-    {
-        "id": "5",
-        "title": "Medicheck (TFG en curso)",
-        "subtitle": "Asistente virtual para triaje médico",
-        "description": "Proyecto de TFG en desarrollo: asistente de triaje médico automatizado con IA. La aplicación interpreta síntomas y ayuda a priorizar la atención en entornos educativos y laborales. Arquitectura basada en microservicios e integra APIs de AWS y OAuth2. En fase privada por motivos de propiedad intelectual.",
-        "technologies": ["Python", "Django", "Flask", "Next.js", "Tailwind CSS","Shadcn UI", "TypeScript", "Claude", "Comprehend Medical", "MongoDB", "PostgreSQL", "JWT", "Redis", "Docker", "Nginx", "OAuth2", "AWS"],
-        "image": "",
-        "githubUrl": ""
-    }
-] }: Props = Astro.props;
+const { 
+  title = "Proyectos", 
+  projects: projectsProp = projects 
+} = Astro.props;
 ---
 
 <section class="mb-12">
   <h2 class="text-xl font-semibold text-white mb-6">{title}</h2>
   
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    {projects.map((project) => (
+    {projectsProp.map((project) => (
       <Card key={project.id} className="bg-gray-900 border-gray-700 hover:border-blue-600/50 transition-colors">
         <CardContent className="p-0">
           <!-- Imagen del proyecto -->
@@ -86,7 +45,7 @@ const { title = "Proyectos", projects = [
               />
             ) : (
               <div class="text-6xl opacity-50 text-blue-400">
-                {project.icon || "📁"}
+                {project.icon || "📦"}
               </div>
             )}
           </div>
